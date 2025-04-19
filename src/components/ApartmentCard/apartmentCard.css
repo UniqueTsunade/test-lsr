@@ -101,32 +101,3 @@
 .apartment-card__more:focus-visible {
   border: #3f3f3f 1px solid;
 }
-
-.apartment-card__favourite {
-  position: absolute;
-  top: var(--card-padding);
-  right: var(--card-padding);
-}
-
-.apartment-card__favourite-icon path {
-  stroke: currentColor;
-  transition: stroke 0.3s ease;
-}
-
-.apartment-card__favourite-btn {
-  color: grey;
-}
-
-.apartment-card__favourite-btn {
-  color: grey;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.apartment-card__favourite-btn--is-active {
-  color: red;
-}
-
-.apartment-card__favourite-btn:hover svg path {
-  stroke: red;
-}
