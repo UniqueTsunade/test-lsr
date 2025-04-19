@@ -1,0 +1,123 @@
+:root {
+  --card-padding: 1rem;
+  --card-radius: 8px;
+  --card-gap: 0.75rem;
+  --card-border: 1px solid #ddd;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --main-text: 1.6rem;
+  --label-text: 1.1rem;
+}
+
+.apartment-card {
+  position: relative;
+  width: 100%;
+  max-width: 50rem;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.apartment-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.apartment-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+}
+
+.apartment-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  align-self: center;
+}
+
+.apartment-card__plan {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.apartment-card__label {
+  display: flex;
+  column-gap: 0.3rem;
+}
+
+.apartment-card__label span {
+  font-size: var(--label-text);
+}
+
+.apartment-card__header {
+  font-size: var(--main-text);
+  font-weight: 600;
+}
+
+.apartment-card__price {
+  font-size: var(--main-text);
+  font-weight: 700;
+}
+
+.apartment-card__footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--card-padding);
+}
+
+.apartment-card__footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: var(--card-border);
+}
+
+.apartment-card__more {
+  font-size: var(--main-text);
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: var(--card-border);
+  transition: border 0.2s ease;
+}
+
+.apartment-card__more:hover,
+.apartment-card__more:focus-visible {
+  border: #3f3f3f 1px solid;
+}
+
+.apartment-card__favourite {
+  position: absolute;
+  top: var(--card-padding);
+  right: var(--card-padding);
+}
+
+.apartment-card__favourite-icon path {
+  stroke: currentColor;
+  transition: stroke 0.3s ease;
+}
+
+.apartment-card__favourite-btn {
+  color: grey;
+}
+
+.apartment-card__favourite-btn:hover,
+.apartment-card__favourite-btn:focus-visible {
+  color: red;
+}
