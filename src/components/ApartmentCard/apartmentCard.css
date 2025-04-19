@@ -117,7 +117,16 @@
   color: grey;
 }
 
-.apartment-card__favourite-btn:hover,
-.apartment-card__favourite-btn:focus-visible {
+.apartment-card__favourite-btn {
+  color: grey;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.apartment-card__favourite-btn--is-active {
   color: red;
+}
+
+.apartment-card__favourite-btn:hover svg path {
+  stroke: red;
 }

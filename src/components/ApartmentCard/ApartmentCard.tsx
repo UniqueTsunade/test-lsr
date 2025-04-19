@@ -1,7 +1,14 @@
+import { useState } from 'react'
 import ApartmentPlan from '../../assets/plan.png'
 import './apartmentCard.css'
 
 const ApartmentCard = () => {
+  const [isFavourite, setIsFavourite] = useState(false)
+
+  const handleFavouriteToggle = () => {
+    setIsFavourite((prev) => !prev)
+  }
+
   return (
     <div className="apartment-card">
       <a
@@ -46,7 +53,11 @@ const ApartmentCard = () => {
       <div className="apartment-card__favourite">
         <button
           type="button"
-          className="apartment-card__favourite-btn apartment-card__favourite-btn--is-active"
+          className={`apartment-card__favourite-btn ${isFavourite ? 'apartment-card__favourite-btn--is-active' : ''}`}
+          aria-label={
+            isFavourite ? 'Удалить из избранного' : 'Добавить в избранное'
+          }
+          onClick={handleFavouriteToggle}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +73,8 @@ const ApartmentCard = () => {
                    C13.09 3.81 14.76 3 16.5 3
                    19.58 3 22 5.42 22 8.5
                    c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-              fill="none"
+              fill={isFavourite ? 'red' : 'none'}
+              stroke={isFavourite ? 'red' : 'grey'}
               strokeWidth="1"
             />
           </svg>
