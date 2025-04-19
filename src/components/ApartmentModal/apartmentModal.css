@@ -1,0 +1,33 @@
+:root {
+  --card-padding: 1rem;
+  --card-radius: 8px;
+  --card-gap: 0.75rem;
+  --card-border: 1px solid #ddd;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --main-text: 1.6rem;
+  --label-text: 1.1rem;
+}
+
+.apartment-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.apartment-modal__content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}

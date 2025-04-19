@@ -44,8 +44,6 @@ button {
   color: inherit;
   text-align: left;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @mixin noselect {

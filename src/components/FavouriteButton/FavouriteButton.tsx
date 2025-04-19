@@ -9,6 +9,11 @@ const FavouriteButton: React.FC<FavouriteButtonProps> = ({
   isFavourite,
   onToggle,
 }) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
+    onToggle()
+  }
+
   return (
     <div className="favourite-button">
       <button
@@ -19,7 +24,7 @@ const FavouriteButton: React.FC<FavouriteButtonProps> = ({
         aria-label={
           isFavourite ? 'Удалить из избранного' : 'Добавить в избранное'
         }
-        onClick={onToggle}
+        onClick={handleClick}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
