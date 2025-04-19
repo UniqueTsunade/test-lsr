@@ -4,6 +4,7 @@ import './apartmentCard.css'
 import FavouriteButton from '../FavouriteButton'
 import ApartmentModal from '../ApartmentModal'
 import ApartmentCardContent from './ApartmentCardContent'
+import { Apartment } from '../../types'
 
 const ApartmentCard = () => {
   const [isFavourite, setIsFavourite] = useState(false)
@@ -21,12 +22,20 @@ const ApartmentCard = () => {
     setIsModalOpen(false)
   }
 
+  const apartmentData: Apartment = {
+    building: 'дом 43',
+    floor: 'эт. 3/32',
+    type: '2-комнатная евро квартира',
+    price: '14 598 252 ₽',
+    image: ApartmentPlan,
+  }
+
   return (
     <div className="apartment-card">
       <ApartmentCardContent
+        apartment={apartmentData}
         handleOpenModal={handleOpenModal}
         isModalOpen={isModalOpen}
-        cardImg={ApartmentPlan}
       />
 
       <div className="apartment-card__footer">
@@ -39,6 +48,7 @@ const ApartmentCard = () => {
         </button>
         {isModalOpen && (
           <ApartmentModal
+            apartment={apartmentData}
             isFavourite={isFavourite}
             onToggleFavourite={handleFavouriteToggle}
             onClose={handleCloseModal}

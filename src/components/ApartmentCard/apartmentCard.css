@@ -6,7 +6,6 @@
   --card-bg: #fff;
   --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   --main-text: 1.6rem;
-  --label-text: 1.1rem;
 }
 
 .apartment-card {
@@ -30,46 +29,9 @@
 }
 
 .apartment-card__content {
-  display: flex;
-  flex-direction: column;
   cursor: pointer;
-  gap: var(--card-gap);
   padding: var(--card-padding);
   color: inherit;
-  flex-grow: 1;
-}
-
-.apartment-card__image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  align-self: center;
-}
-
-.apartment-card__plan {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.apartment-card__label {
-  display: flex;
-  column-gap: 0.3rem;
-}
-
-.apartment-card__label span {
-  font-size: var(--label-text);
-}
-
-.apartment-card__header {
-  font-size: var(--main-text);
-  font-weight: 600;
-}
-
-.apartment-card__price {
-  font-size: var(--main-text);
-  font-weight: 700;
 }
 
 .apartment-card__footer {

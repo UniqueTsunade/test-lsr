@@ -2,11 +2,12 @@ import './apartmentModal.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ApartmentPlan from '../../assets/plan.png'
 import ApartmentCardPreview from '../ApartmentCardPreview'
 import FavouriteButton from '../FavouriteButton'
+import { Apartment } from '../../types'
 
 type ApartmentModalProps = {
+  apartment: Apartment
   isFavourite: boolean
   onToggleFavourite: () => void
   onClose: () => void
@@ -15,6 +16,7 @@ type ApartmentModalProps = {
 const modalRoot = document.getElementById('modal-root')
 
 const ApartmentModal: React.FC<ApartmentModalProps> = ({
+  apartment: { building, floor, type, price, image },
   isFavourite,
   onToggleFavourite,
   onClose,
@@ -38,15 +40,14 @@ const ApartmentModal: React.FC<ApartmentModalProps> = ({
         className="apartment-modal__content"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          className="apartment-modal__close"
-          aria-label="Закрыть"
-          onClick={onClose}
-        >
-          ✕
-        </button>
-        <ApartmentCardPreview cardImg={ApartmentPlan} />
-        <div>
+        <ApartmentCardPreview
+          building={building}
+          floor={floor}
+          cardImg={image}
+          type={type}
+          price={price}
+        />
+        <div className="apartment-modal__description">
           Таким образом постоянный количественный рост и сфера нашей активности
           представляет собой интересный эксперимент проверки позиций, занимаемых
           участниками в отношении поставленных задач. Не следует, однако

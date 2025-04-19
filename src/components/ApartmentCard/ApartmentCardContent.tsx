@@ -1,15 +1,17 @@
+import { Apartment } from '../../types'
 import ApartmentCardPreview from '../ApartmentCardPreview'
+import './apartmentCard.css'
 
 interface ApartmentCardContentProps {
+  apartment: Apartment
   handleOpenModal: () => void
   isModalOpen: boolean
-  cardImg: string
 }
 
 const ApartmentCardContent: React.FC<ApartmentCardContentProps> = ({
+  apartment: { building, floor, type, price, image },
   handleOpenModal,
   isModalOpen,
-  cardImg,
 }) => {
   return (
     <div
@@ -22,10 +24,16 @@ const ApartmentCardContent: React.FC<ApartmentCardContentProps> = ({
           handleOpenModal()
         }
       }}
-      aria-label="Подробнее о квартире, 2-комнатная евро, 14 598 252 ₽"
+      aria-label={`Подробнее о квартире, ${type}, ${price}`}
       aria-pressed={isModalOpen}
     >
-      <ApartmentCardPreview cardImg={cardImg} />
+      <ApartmentCardPreview
+        building={building}
+        floor={floor}
+        cardImg={image}
+        type={type}
+        price={price}
+      />
     </div>
   )
 }

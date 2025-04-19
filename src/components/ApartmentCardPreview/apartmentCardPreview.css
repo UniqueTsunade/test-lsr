@@ -1,0 +1,46 @@
+:root {
+  --main-text: 1.6rem;
+  --label-text: 1.1rem;
+  --card-gap: 0.75rem;
+}
+
+.apartment-preview {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--card-gap);
+  color: inherit;
+  flex-grow: 1;
+}
+
+.apartment-preview__label {
+  display: flex;
+  column-gap: 0.3rem;
+}
+
+.apartment-preview__label span {
+  font-size: var(--label-text);
+}
+
+.apartment-preview__header {
+  font-size: var(--main-text);
+  font-weight: 600;
+}
+
+.apartment-preview__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  align-self: center;
+}
+
+.apartment-preview__plan {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.apartment-preview__price {
+  font-size: var(--main-text);
+  font-weight: 700;
+}

@@ -1,33 +1,38 @@
 import React from 'react'
+import './apartmentCardPreview.css'
 
 interface ApartmentCardPreviewProp {
+  building: string
+  floor: string
+  type: string
+  price: string
   cardImg: string
 }
 
 const ApartmentCardPreview: React.FC<ApartmentCardPreviewProp> = ({
+  building,
+  floor,
+  type,
+  price,
   cardImg,
 }) => {
   return (
-    <div>
-      <div className="apartment-card__label">
-        <span className="apartment-card__building">дом 43</span>
-        <span className="apartment-card__floor">эт. 3/32</span>
+    <div className="apartment-preview">
+      <div className="apartment-preview__label">
+        <span className="apartment-preview__building">дом {building}</span>
+        <span className="apartment-preview__floor">эт. {floor}</span>
       </div>
 
-      <div className="apartment-card__header">
-        <span className="apartment-card__type">2-комнатная евро квартира</span>
+      <div className="apartment-preview__header">
+        <span className="apartment-preview__type">{type}</span>
       </div>
 
-      <div className="apartment-card__image">
-        <img
-          src={cardImg}
-          alt="2-комнатная евро квартира"
-          className="apartment-card__plan"
-        />
+      <div className="apartment-preview__image">
+        <img src={cardImg} alt={type} className="apartment-preview__plan" />
       </div>
 
-      <div className="apartment-card__details">
-        <span className="apartment-card__price">14 598 252 ₽</span>
+      <div className="apartment-preview__details">
+        <span className="apartment-preview__price">{price}</span>
       </div>
     </div>
   )
