@@ -63,3 +63,9 @@
 .apartment-card__more:focus-visible {
   border: #3f3f3f 1px solid;
 }
+
+@media (max-width: 767.98px) {
+  .apartment-card {
+    min-height: 23rem;
+  }
+}
