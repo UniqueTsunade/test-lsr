@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = {
@@ -8,7 +7,5 @@ module.exports = {
     hot: true,
     open: true,
   },
-  plugins: [
-    new ReactRefreshWebpackPlugin(),
-  ],
+  plugins: [new ReactRefreshWebpackPlugin()],
 }
