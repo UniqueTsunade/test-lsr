@@ -7,12 +7,14 @@ interface ApartmentCardContentProps {
   apartment: Apartment
   handleOpenModal: () => void
   isModalOpen: boolean
+  children?: React.ReactNode
 }
 
 const ApartmentCardContent: React.FC<ApartmentCardContentProps> = ({
   apartment,
   handleOpenModal,
   isModalOpen,
+  children,
 }) => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (['Enter', ' '].includes(e.key)) {
@@ -37,6 +39,7 @@ const ApartmentCardContent: React.FC<ApartmentCardContentProps> = ({
       aria-pressed={isModalOpen}
     >
       <ApartmentCardPreview {...apartment} />
+      {children}
     </div>
   )
 }

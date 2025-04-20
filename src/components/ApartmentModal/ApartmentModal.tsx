@@ -12,8 +12,6 @@ type ApartmentModalProps = {
   onClose: () => void
 }
 
-const modalRoot = document.getElementById('modal-root')
-
 const ApartmentModal: React.FC<ApartmentModalProps> = ({
   apartment,
   isFavourite,
@@ -34,6 +32,7 @@ const ApartmentModal: React.FC<ApartmentModalProps> = ({
     }
   }
 
+  const modalRoot = document.getElementById('modal-root')
   if (!modalRoot) return null
 
   return ReactDOM.createPortal(
@@ -44,10 +43,12 @@ const ApartmentModal: React.FC<ApartmentModalProps> = ({
       onKeyDown={handleKeyDown}
       tabIndex={0}
       onClick={onClose}
+      data-testid="modal-overlay"
     >
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
       <div
         className="apartment-modal__content"
+        data-testid="modal-content"
         onClick={(e) => e.stopPropagation()}
       >
         <ApartmentCardPreview {...apartment} />
