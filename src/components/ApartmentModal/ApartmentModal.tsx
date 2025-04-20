@@ -1,5 +1,4 @@
 import './apartmentModal.css'
-
 import React, { useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import ApartmentCardPreview from '../ApartmentCardPreview'
@@ -55,10 +54,12 @@ const ApartmentModal: React.FC<ApartmentModalProps> = ({
         <div className="apartment-modal__description">
           {apartment.description}
         </div>
-        <FavouriteButton
-          isFavourite={isFavourite}
-          onToggle={onToggleFavourite}
-        />
+        <div className="apartment-modal__favourite">
+          <FavouriteButton
+            isFavourite={isFavourite}
+            onToggle={onToggleFavourite}
+          />
+        </div>
       </div>
     </div>,
     modalRoot

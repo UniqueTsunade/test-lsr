@@ -56,10 +56,12 @@ const ApartmentCard = () => {
         )}
       </div>
 
-      <FavouriteButton
-        isFavourite={isFavourite}
-        onToggle={handleFavouriteToggle}
-      />
+      <div className="apartment-card__favourite">
+        <FavouriteButton
+          isFavourite={isFavourite}
+          onToggle={handleFavouriteToggle}
+        />
+      </div>
     </div>
   )
 }

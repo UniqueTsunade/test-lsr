@@ -1,10 +1,11 @@
 :root {
   --card-padding: 1rem;
   --card-radius: 8px;
-  --card-gap: 0.75rem;
   --card-border: 1px solid #ddd;
   --card-bg: #fff;
   --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --border-btn: #333232 1px solid;
+  --button-hover-bg: #d8e2e2;
   --main-text: 1.6rem;
 }
 
@@ -34,6 +35,12 @@
   color: inherit;
 }
 
+.apartment-card__favourite {
+  position: absolute;
+  top: var(--card-padding);
+  right: var(--card-padding);
+}
+
 .apartment-card__footer {
   position: relative;
   width: 100%;
@@ -53,6 +60,7 @@
 
 .apartment-card__more {
   font-size: var(--main-text);
+  background-color: inherit;
   padding: 5px 20px;
   border-radius: 10px;
   border: var(--card-border);
@@ -61,7 +69,8 @@
 
 .apartment-card__more:hover,
 .apartment-card__more:focus-visible {
-  border: #3f3f3f 1px solid;
+  border: var(--border-btn);
+  background-color: var(--button-hover-bg);
 }
 
 @media (max-width: 767.98px) {

@@ -1,14 +1,10 @@
 :root {
+  --base-color: grey;
+  --action-color: red;
   --card-padding: 1rem;
 }
 
 .favourite-button {
-  position: absolute;
-  top: var(--card-padding);
-  right: var(--card-padding);
-}
-
-.favourite-button__btn {
   background: none;
   border: none;
   padding: 0;
@@ -17,7 +13,7 @@
 
 .favourite-button__icon path {
   fill: none;
-  stroke: grey;
+  stroke: var(--base-color);
   stroke-width: 1;
   transition:
     stroke 0.3s ease,
@@ -25,10 +21,10 @@
 }
 
 .favourite-button__btn--is-active .favourite-button__icon path {
-  fill: red;
-  stroke: red;
+  fill: var(--action-color);
+  stroke: var(--action-color);
 }
 
-.favourite-button__btn:hover .favourite-button__icon path {
-  stroke: red;
+.favourite-button:hover .favourite-button__icon path {
+  stroke: var(--action-color);
 }
