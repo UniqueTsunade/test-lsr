@@ -1,12 +1,10 @@
 import React from 'react'
+import { Apartment } from '../../types'
 import './apartmentCardPreview.css'
+import { formatPrice } from '../../utils/formatPrice'
 
-interface ApartmentCardPreviewProp {
-  building: string
-  floor: string
-  type: string
-  price: string
-  cardImg: string
+interface ApartmentCardPreviewProp extends Apartment {
+  className?: string
 }
 
 const ApartmentCardPreview: React.FC<ApartmentCardPreviewProp> = ({
@@ -14,10 +12,11 @@ const ApartmentCardPreview: React.FC<ApartmentCardPreviewProp> = ({
   floor,
   type,
   price,
-  cardImg,
+  image,
+  className,
 }) => {
   return (
-    <div className="apartment-preview">
+    <div className={`apartment-preview ${className || ''}`}>
       <div className="apartment-preview__label">
         <span className="apartment-preview__building">дом {building}</span>
         <span className="apartment-preview__floor">эт. {floor}</span>
@@ -28,11 +27,15 @@ const ApartmentCardPreview: React.FC<ApartmentCardPreviewProp> = ({
       </div>
 
       <div className="apartment-preview__image">
-        <img src={cardImg} alt={type} className="apartment-preview__plan" />
+        <img
+          src={image}
+          alt={`Планировка квартиры: ${type}, дом ${building}, этаж ${floor}`}
+          className="apartment-preview__plan"
+        />
       </div>
 
       <div className="apartment-preview__details">
-        <span className="apartment-preview__price">{price}</span>
+        <span className="apartment-preview__price">{formatPrice(price)}</span>
       </div>
     </div>
   )

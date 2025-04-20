@@ -1,4 +1,5 @@
 import { Apartment } from '../../types'
+import { formatPriceForAria } from '../../utils/formatPrice'
 import ApartmentCardPreview from '../ApartmentCardPreview'
 import './apartmentCard.css'
 
@@ -9,31 +10,33 @@ interface ApartmentCardContentProps {
 }
 
 const ApartmentCardContent: React.FC<ApartmentCardContentProps> = ({
-  apartment: { building, floor, type, price, image },
+  apartment,
   handleOpenModal,
   isModalOpen,
 }) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (['Enter', ' '].includes(e.key)) {
+      handleOpenModal()
+    }
+  }
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (!(e.target instanceof HTMLButtonElement)) {
+      handleOpenModal()
+    }
+  }
+
   return (
     <div
       className="apartment-card__content"
       role="button"
       tabIndex={0}
-      onClick={handleOpenModal}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          handleOpenModal()
-        }
-      }}
-      aria-label={`Подробнее о квартире, ${type}, ${price}`}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      aria-label={`Подробнее о квартире, ${apartment.type}, ${formatPriceForAria(apartment.price)}`}
       aria-pressed={isModalOpen}
     >
-      <ApartmentCardPreview
-        building={building}
-        floor={floor}
-        cardImg={image}
-        type={type}
-        price={price}
-      />
+      <ApartmentCardPreview {...apartment} />
     </div>
   )
 }

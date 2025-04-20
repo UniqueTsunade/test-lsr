@@ -5,30 +5,30 @@ import FavouriteButton from '../FavouriteButton'
 import ApartmentModal from '../ApartmentModal'
 import ApartmentCardContent from './ApartmentCardContent'
 import { Apartment } from '../../types'
+import { useModal } from '../../hooks/useModal'
+
+const apartmentData: Apartment = {
+  building: '43',
+  floor: '3/32',
+  type: '2-комнатная евро квартира',
+  price: 14598252,
+  image: ApartmentPlan,
+  description:
+    'Таким образом постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянное информационно-пропагандистское обеспечение нашей деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.',
+}
 
 const ApartmentCard = () => {
   const [isFavourite, setIsFavourite] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleFavouriteToggle = () => {
     setIsFavourite((prev) => !prev)
   }
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true)
-  }
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-  }
-
-  const apartmentData: Apartment = {
-    building: 'дом 43',
-    floor: 'эт. 3/32',
-    type: '2-комнатная евро квартира',
-    price: '14 598 252 ₽',
-    image: ApartmentPlan,
-  }
+  const {
+    isOpen: isModalOpen,
+    open: handleOpenModal,
+    close: handleCloseModal,
+  } = useModal()
 
   return (
     <div className="apartment-card">
