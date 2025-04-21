@@ -73,7 +73,7 @@
   background-color: var(--button-hover-bg);
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 767px) {
   .apartment-card {
     min-height: 23rem;
   }
