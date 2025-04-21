@@ -50,11 +50,9 @@ describe('ApartmentCard', () => {
     const user = userEvent.setup()
     render(<ApartmentCard />)
 
-    // Открытие модалки
     await user.click(screen.getByRole('button', { name: /подробнее/i }))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
 
-    // Закрытие модалки
     await user.click(screen.getByRole('button', { name: /закрыть/i }))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
